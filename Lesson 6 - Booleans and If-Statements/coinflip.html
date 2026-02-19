@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coinflip</title>
+</head>
+<body>
+  <button
+    onclick="
+      const random = Math.random();
+      let result = '';
+
+      if (random <= 0.5){
+        result = 'Heads';
+        console.log(`${result}! The random number is: ${random}`);
+      }
+
+        else {
+          result = 'Tails';
+          console.log(`${result}! The random number is: ${random}`);
+        }
+    "
+  >
+    Flip a Coin!
+  </button>
+</body>
+</html>
