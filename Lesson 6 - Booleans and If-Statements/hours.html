@@ -6,23 +6,18 @@
   <title>Greetings by Hours</title>
 </head>
 <body>
-  <button
-    onclick="
-      const hour = 2;
-      let name = 'Ferrer';
+  <button onclick="
+    const hour = 2;
+    let name = 'Ferrer';
 
-      if (hour >= 6 && hour <= 12){
-        console.log(`Good morning, ${name}!`);
-      }
-      
-        else if (hour >= 13 && hour <= 17){
-          console.log(`Good afternoon, ${name}!`);
-        }
-
-      else{
-        console.log(`Good night, ${name}!`);
-      }
-    "
-  >Hour 7</button>
+    if (hour >= 6 && hour <= 12){
+      console.log(`Good morning, ${name}!`);
+    } else if (hour >= 13 && hour <= 17){
+      console.log(`Good afternoon, ${name}!`);
+    } else {
+      console.log(`Good night, ${name}!`);
+    }
+  ">Hour 7
+  </button>
 </body>
 </html>
