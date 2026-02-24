@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heat Conversion</title>
+</head>
+<body>
+  <button onclick="
+    convert(122, 'F');
+  ">Convert
+  </button>
+
+  <script>
+    let degrees = '';
+    let unit = '';
+    let convertedDegrees = '';
+    let convertedUnit = '';
+    
+    function convert(degrees, unit){
+      if (unit === 'C'){
+        convertedUnit = 'F';
+        convertedDegrees = ((degrees * 9 / 5) + 32);
+        console.log(`${degrees}${unit} is equal to ${convertedDegrees}${convertedUnit}`);
+      } else {
+        convertedUnit = 'C';
+        convertedDegrees = ((degrees - 32) * 5 / 9);
+        console.log(`${degrees}${unit} is equal to ${convertedDegrees}${convertedUnit}`);
+      }
+    }
+  </script>
+</body>
+</html>
