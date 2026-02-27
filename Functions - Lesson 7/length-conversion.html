@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Length Conversion</title>
+</head>
+<body>
+  <button onclick="
+    milesToKm(32, 'km', 'mi');
+  ">Test
+  </button>
+
+  <script>
+    let number = '';
+    let unit = '';
+    let to = '';
+    let result = '';
+
+    function milesToKm(number, unit, to){
+      if (unit === 'mi' && to === 'km'){
+        result = number * 1.6;
+        console.log(`${number} ${unit} is equal to ${result} ${to}`);
+      } else if(unit === 'km' && to === 'mi'){
+        result = number / 1.6;
+        console.log(`${number} ${unit} is equal to ${result} ${to}`);
+      } else if(unit === to){
+        result = number;
+        console.log(`${number} ${unit} is equal to ${result} ${to}`);
+      }
+    }
+  </script>
+</body>
+</html>
