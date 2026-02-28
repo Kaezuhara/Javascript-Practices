@@ -19,45 +19,54 @@
  
   <!--Add to Cart-->
   <button onclick="
-    if (cartQuantity < 10){
+    if (cartQuantity >= 10){
+      console.log('Cart is full!')
+      return;
+    }
       cartQuantity++;
       console.log(`Successfully added to cart. Cart quantity: ${cartQuantity}`);
-    } else {
-      console.log('Cart is full!')
-    }
   "> Add to Cart (+1)
   </button>
 
   <!--Subtract Cart Qty by 1-->
   <button onclick="
-    if (cartQuantity >= 1){
+    if (cartQuantity < 1){
+      console.log('There are no products in the cart.');
+      return;
+    } 
       cartQuantity--;
       console.log(`Removed 1 product from the cart. Cart quantity: ${cartQuantity}`);
-    } else {
-      console.log('There are no products in the cart.')
-    }
   ">Remove from the cart (-1)
   </button>
 
   <!--Subtract Cart Qty by 2-->
   <button onclick="
-    if (cartQuantity >= 2){
+    if (cartQuantity < 1){
+      console.log('There are no products in the cart.');
+      return;
+    } else if (cartQuantity < 2){
+      console.log(`There are not enough products in the cart. Cart quantity: ${cartQuantity}`);
+      return;
+    }
       cartQuantity = cartQuantity - 2;
       console.log(`Removed 2 products from the cart. Cart quantity: ${cartQuantity}`);
-    } else {
-      console.log(`There are not enough products in the cart. Cart quantity: ${cartQuantity}`)
-    }
   ">Remove from the cart (-2)
   </button>
 
   <!--Subtract Cart Qty by 3-->
   <button onclick="
-    if (cartQuantity >= 3){
+    if (cartQuantity < 1){
+      console.log('There are no products in the cart.');
+      return;
+    } else if (cartQuantity < 2){
+      console.log(`There are not enough products in the cart. Cart quantity: ${cartQuantity}`);
+      return;
+    } else if (cartQuantity < 3){
+      console.log(`There are not enough products in the cart. Cart quantity: ${cartQuantity}`);
+      return;
+    }
       cartQuantity = cartQuantity - 3;
       console.log(`Removed 3 products from the cart. Cart quantity: ${cartQuantity}`);
-    } else {
-      console.log(`There are not enough products in the cart. Cart quantity: ${cartQuantity}`)
-    }
   ">Remove from the cart (-3)
   </button>
 </body>
