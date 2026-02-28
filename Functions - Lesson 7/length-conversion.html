@@ -7,7 +7,7 @@
 </head>
 <body>
   <button onclick="
-    milesToKm(32, 'km', 'mi');
+    milesToKm(5, 'km', 'ft');
   ">Test
   </button>
 
@@ -21,12 +21,26 @@
       if (unit === 'mi' && to === 'km'){
         result = number * 1.6;
         console.log(`${number} ${unit} is equal to ${result} ${to}`);
+      } else if(unit === 'mi' && to === 'ft'){
+        result = number * 5280;
+        console.log(`${number} ${unit} is equal to ${result} ${to}`);
       } else if(unit === 'km' && to === 'mi'){
         result = number / 1.6;
+        console.log(`${number} ${unit} is equal to ${result} ${to}`);
+      } else if(unit === 'km' && to === 'ft'){
+        result = number * 3281;
+        console.log(`${number} ${unit} is equal to ${result} ${to}`);
+      } else if(unit === 'ft' && to === 'mi'){
+        result = number / 5280;
+        console.log(`${number} ${unit} is equal to ${result} ${to}`);
+      } else if(unit === 'ft' && to === 'km'){
+        result = number / 3281;
         console.log(`${number} ${unit} is equal to ${result} ${to}`);
       } else if(unit === to){
         result = number;
         console.log(`${number} ${unit} is equal to ${result} ${to}`);
+      } else{
+        console.log(`Invalid unit: ${unit}`);
       }
     }
   </script>
