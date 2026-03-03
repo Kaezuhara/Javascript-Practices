@@ -40,6 +40,26 @@
     }
 
     comparePrice();
+
+    const product3 = {
+      name: 'racket',
+      price: 900
+    };
+
+    const product4 = {
+      name: 'racket',
+      price: 900
+    };
+
+    function isSameProduct(){
+      if ((product3.name && product4.price) === (product3.name && product4.price)){
+        console.log('Product 3 and 4 are not the same');
+      } else {
+        console.log('Product 3 and 4 are the same');
+      }
+    }
+
+    isSameProduct();
   </script>
 </body>
 </html>

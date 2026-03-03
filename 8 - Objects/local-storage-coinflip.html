@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coinflip</title>
+</head>
+<body>
+  <button onclick="
+    coinflip();
+  ">Flip a Coin!
+  </button>
+
+  <button onclick="
+    resetScore();
+  ">Reset Score
+  </button>
+
+  <script>
+    let result = '';
+
+    //'score' object initialization.
+    //if the first statement is null, then the statement after the OR operand is checked and executed.
+    //the json is the value of score IF it has a saved value. Otherwise, the score's value is the latter.
+    const score = JSON.parse(localStorage.getItem('score')) || {
+      headsCount: 0, 
+      tailsCount: 0
+    };
+
+    function coinflip(){
+      const random = Math.random();
+
+      if (random <= 0.5){
+        result = 'Heads';
+        score.headsCount++;
+        console.log(`${result}! The random number is: ${random}`);
+      } else {
+        result = 'Tails';
+        score.tailsCount++;
+        console.log(`${result}! The random number is: ${random}`);
+      }
+
+      console.log(`Heads: ${score.headsCount} | Tails: ${score.tailsCount}`);
+
+      //saves the score to the computer storage.
+      //saved as a string so that it is easily translated between computers and languages.
+      localStorage.setItem('score', JSON.stringify(score));
+    }
+
+    function resetScore(){
+      //deletes the saved json strings.
+      localStorage.removeItem('score');
+
+      score.headsCount = 0;
+      score.tailsCount = 0;
+      console.log('Score Resetted!')
+      console.log(`Heads: ${score.headsCount} | Tails: ${score.tailsCount}`);
+    }
+  </script>
+</body>
+</html>
