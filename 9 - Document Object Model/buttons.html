@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buttons</title>
+</head>
+<body>
+  <!--9A-->
+  <button onclick="
+    document.querySelector('button');
+    console.log(document.querySelector('button'));
+  ">9A</button>
+
+  <!--9B-->
+  <button class="change" onclick="
+    console.log(document.querySelector('.change'));
+    document.querySelector('.change').innerHTML = 'done';
+  ">change this</button>
+  
+  <!--9C-->
+  <div style="margin-top: 20px">
+    <button class="heads" onclick="
+      document.querySelector('.choice')
+        .innerHTML = 'You chose heads!';
+    ">
+      heads
+    </button>
+    <button class="tails" onclick="
+      document.querySelector('.choice')
+        .innerHTML = 'You chose tails!';
+    ">
+      tails
+    </button>
+  </div>
+
+  <p class="choice"></p>
+
+  <!--9D-->
+  <div style="margin-top: 20px">
+    <input type="text" class="inputBar" placeholder="type here"
+      onkeydown="
+        if (event.key === 'Enter'){   /*9E*/
+          result();
+        }
+      ">
+    <button class="submit" onclick="
+      result();
+    ">
+      Submit
+    </button>
+    <p class="result"></p>
+  </div>
+
+  <script>
+    function result(){
+      const inputElement = document.querySelector('.inputBar');
+      let inputText = inputElement.value;
+      
+      document.querySelector('.result').innerHTML = `${inputText}`;
+    }
+  </script>
+</body>
+</html>
