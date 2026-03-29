@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+</head>
+<body>
+  <p class="displayInput"></p>
+  <p class="displayOutput"></p>
+  
+  <div>
+    <!--Digit 1-->
+    <button onclick="
+      insertNew('1');
+      showCurrentResult();
+    ">
+      1
+    </button>
+
+    <!--Digit 2-->
+    <button onclick="
+      insertNew('2');
+      showCurrentResult();
+    ">
+      2
+    </button>
+
+    <!--Digit 3-->
+    <button onclick="
+      insertNew('3');
+      showCurrentResult();
+    ">
+      3
+    </button>
+  </div>
+
+  <div>
+    <!--Digit 4-->
+    <button onclick="
+      insertNew('4');
+      showCurrentResult();
+    ">
+      4
+    </button>
+
+    <!--Digit 5-->
+    <button onclick="
+      insertNew('5');
+      showCurrentResult();
+    ">
+      5
+    </button>
+
+    <!--Digit 6-->
+    <button onclick="
+      insertNew('6');
+      showCurrentResult();
+    ">
+      6
+    </button>
+  </div>
+
+  <div>
+    <!--Digit 7-->
+    <button onclick="
+      insertNew('7');
+      showCurrentResult();
+    ">
+      7
+    </button>
+
+    <!--Digit 8-->
+    <button onclick="
+      insertNew('8');
+      showCurrentResult();
+    ">
+      8
+    </button>
+
+    <!--Digit 9-->
+    <button onclick="
+      insertNew('9');
+      showCurrentResult();
+    ">
+      9
+    </button>
+  </div>
+
+  <!--Digit 0-->
+  <div>
+    <button onclick="
+      insertNew('0')
+      showCurrentResult();
+    ">
+      0
+    </button>
+  </div>
+
+  <div>
+    <!--Addition Symbol-->
+    <button onclick="
+      insertNew('+');
+    ">
+      +
+    </button>
+
+    <!--Subtraction Symbol-->
+    <button onclick="
+      insertNew('-');
+    ">
+      -
+    </button>
+
+    <!--Multiplication Symbol-->
+    <button onclick="
+      insertNew('*');
+    ">
+      x
+    </button>
+
+    <!--Multiplication Symbol-->
+    <button onclick="
+      insertNew('/');
+    ">
+      /
+    </button>
+
+    <!--Calculate Symbol-->
+    <button onclick="
+      calculateResult();
+      
+    ">
+      =
+    </button>
+  </div>
+
+  <!--Delete-->
+  <div>
+    <button onclick="
+      deleteNew();
+    ">
+      Delete
+    </button>
+
+    <!--Clear-->
+    <button onclick="
+      clearAll();
+    ">
+      Clear
+    </button>
+  </div>
+
+    <!--Javascript-->
+    <script>
+      let stringInput = document.querySelector('.displayInput');
+      let displayOutput = document.querySelector('.displayOutput');
+
+      function insertNew(newVar){
+        stringInput.innerHTML += newVar;
+      }
+
+      function showCurrentResult(){
+        displayOutput.innerHTML = eval(stringInput.innerHTML);
+      }
+
+      function calculateResult(){
+       stringInput.innerHTML = displayOutput.innerHTML;
+       displayOutput.innerHTML = '';
+      }
+
+      function clearAll(){
+        stringInput.innerHTML = '';
+        displayOutput.innerHTML = '';
+        alert('clear successful!');
+      }
+
+      function deleteNew(){
+        stringInput.innerHTML = stringInput.innerHTML.slice(0, -1);
+        showCurrentResult();
+      }
+
+    </script>
+</body>
+</html>
