@@ -154,30 +154,64 @@
     <!--Javascript-->
     <script>
       let stringInput = document.querySelector('.displayInput');
+        stringInput.innerHTML = localStorage.getItem('savedInput') || '';
       let displayOutput = document.querySelector('.displayOutput');
+
+      if(localStorage.getItem('justCalculated') !== 'true'){
+        showCurrentResult();
+      }
 
       function insertNew(newVar){
         stringInput.innerHTML += newVar;
+        localStorage.setItem('savedInput', stringInput.innerHTML);
+        localStorage.removeItem('justCalculated');    // prevents display duplicate when displayInput is from recent calculation.
       }
 
-      function showCurrentResult(){
-        displayOutput.innerHTML = eval(stringInput.innerHTML);
+      // the delete function also contains showCurrentResult().
+      // thus, to prevent error when the rightmost character is an operation, try catch is used, waiting for inputs.
+      function showCurrentResult(showError = false){    // showError is false by default. calculateResult() checks it.
+        try{
+          let result = eval(stringInput.innerHTML);
+          if (result !== undefined){
+            displayOutput.innerHTML = eval(stringInput.innerHTML);
+          }
+        } catch(e){
+          displayOutput.innerHTML = showError ? 'Error' : '';   // calculateResult() checks this.
+        }
       }
 
       function calculateResult(){
-       stringInput.innerHTML = displayOutput.innerHTML;
-       displayOutput.innerHTML = '';
+        showCurrentResult(true);  // 'true' is used to check for errors.
+        if(displayOutput.innerHTML !== 'Error'){
+          stringInput.innerHTML = displayOutput.innerHTML;
+          displayOutput.innerHTML = '';
+
+          localStorage.setItem('savedInput', stringInput.innerHTML);
+          localStorage.setItem('justCalculated', 'true');
+          // ^^ when page is reloaded, it prevents display duplicate when the last action is calculateResult().
+        }
       }
 
+      // clear all input and storage
       function clearAll(){
         stringInput.innerHTML = '';
         displayOutput.innerHTML = '';
+        localStorage.clear();
         alert('clear successful!');
       }
 
+      // remove rightmost character
       function deleteNew(){
         stringInput.innerHTML = stringInput.innerHTML.slice(0, -1);
-        showCurrentResult();
+
+        // if the displayInput is empty, then so is displayOutput.
+        if (stringInput.innerHTML !== ''){
+          localStorage.setItem('savedInput', stringInput.innerHTML);
+          showCurrentResult();
+        } else {
+          displayOutput.innerHTML = '';
+          localStorage.clear();
+        }
       }
 
     </script>
