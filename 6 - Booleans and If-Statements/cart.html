@@ -25,6 +25,8 @@
     }
       cartQuantity++;
       console.log(`Successfully added to cart. Cart quantity: ${cartQuantity}`);
+
+      displayCart();
   "> Add to Cart (+1)
   </button>
 
@@ -36,6 +38,8 @@
     } 
       cartQuantity--;
       console.log(`Removed 1 product from the cart. Cart quantity: ${cartQuantity}`);
+
+      displayCart();
   ">Remove from the cart (-1)
   </button>
 
@@ -50,6 +54,8 @@
     }
       cartQuantity = cartQuantity - 2;
       console.log(`Removed 2 products from the cart. Cart quantity: ${cartQuantity}`);
+
+      displayCart();
   ">Remove from the cart (-2)
   </button>
 
@@ -67,7 +73,17 @@
     }
       cartQuantity = cartQuantity - 3;
       console.log(`Removed 3 products from the cart. Cart quantity: ${cartQuantity}`);
+
+      displayCart();
   ">Remove from the cart (-3)
   </button>
+
+  <p class="display">Cart Quantity: 0</p>
+
+  <script>
+    function displayCart(){
+      document.querySelector('.display').innerHTML = `Cart Quantity: ${cartQuantity}`;
+    }
+  </script>
 </body>
 </html>
