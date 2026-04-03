@@ -1,0 +1,84 @@
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(36, 36, 36);
+}
+
+p{
+  margin: 0;
+  padding: 0;
+}
+
+.title{
+  color: rgb(208, 208, 208);
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 80px;
+  letter-spacing: 3px;
+  word-spacing: 20px;
+  display: block;
+  margin: 50px 0px;
+}
+
+.choicesRow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.rockCont, .paperCont, .scissorsCont{
+  border: 4px solid gray;
+  padding: 30px;
+  margin: 0px 30px;
+  border-radius: 50%;
+  background-color: rgb(27, 27, 27);
+  transition: ease 0.3s;
+}
+
+.rockCont:hover{
+  scale:  calc(1.2);
+  background-color: rgba(74, 123, 76, 0.172);
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.paperCont:hover{
+  scale:  calc(1.2);
+  background-color: rgba(143, 124, 97, 0.172);
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.scissorsCont:hover{
+  scale:  calc(1.2);
+  background-color: rgba(143, 91, 120, 0.172);
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.choicesIcon{
+  height: 100px;
+  width: 100px;
+}
+
+.displayUserChoice{
+  color: rgb(208, 208, 208);
+  font-size: 30px;
+  font-family: monospace;
+  margin-top: 50px;
+}
+
+.displayComputerChoice{
+  color: rgb(208, 208, 208);
+  font-size: 30px;
+  font-family: monospace;
+}
+
+.displayResult{
+  color: rgb(208, 208, 208);
+  font-size: 60px;
+  font-family: monospace;
+  margin-top: 50px;
+}

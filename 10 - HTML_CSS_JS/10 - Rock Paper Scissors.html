@@ -4,15 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock Paper Scissors</title>
-  <link rel="stylesheet" href="test.css">
+  <link rel="stylesheet" href="10 - Rock Paper Scissors.css">
 </head>
 <body>
+  <script src="10 - Rock Paper Scissors.js"></script>
+
   <p class="title">Rock Paper Scissors</p>
 
-  <div>
-    <img class="choicesIcon" src="images/rock.png">
-    <img class="choicesIcon" src="images/paper.png">
-    <img class="choicesIcon" src="images/scissors.png">
+  <div class="choicesRow">
+    <!--Rock-->
+    <div class="rockCont" onclick="
+      play('rock');
+    ">
+      <img class="choicesIcon" src="images/rock.png">
+    </div>
+    <!--Paper-->
+    <div class="paperCont" onclick="
+      play('paper');
+    ">
+      <img class="choicesIcon" src="images/paper.png">
+    </div>
+    <!--Scissors-->
+    <div class="scissorsCont" onclick="
+      play('scissors');
+    ">
+      <img class="choicesIcon" src="images/scissors.png">
+    </div>
   </div>
+
+  <p class="displayUserChoice"></p>
+  <p class="displayComputerChoice"></p>
+
+  <p class="displayResult"></p>
 </body>
 </html>
