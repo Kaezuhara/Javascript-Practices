@@ -38,21 +38,21 @@ p{
 }
 
 .rockCont:hover{
-  scale:  calc(1.2);
+  scale: 1.2;
   background-color: rgba(74, 123, 76, 0.172);
   border-color: transparent;
   cursor: pointer;
 }
 
 .paperCont:hover{
-  scale:  calc(1.2);
+  scale: 1.2;
   background-color: rgba(143, 124, 97, 0.172);
   border-color: transparent;
   cursor: pointer;
 }
 
 .scissorsCont:hover{
-  scale:  calc(1.2);
+  scale: 1.2;
   background-color: rgba(143, 91, 120, 0.172);
   border-color: transparent;
   cursor: pointer;
@@ -63,22 +63,47 @@ p{
   width: 100px;
 }
 
-.displayUserChoice{
+.displayUserChoice, .displayComputerChoice{
   color: rgb(208, 208, 208);
   font-size: 30px;
   font-family: monospace;
-  margin-top: 50px;
 }
 
-.displayComputerChoice{
-  color: rgb(208, 208, 208);
-  font-size: 30px;
-  font-family: monospace;
+.displayUserChoice:not(:empty) {
+  margin-top: 50px;
 }
 
 .displayResult{
   color: rgb(208, 208, 208);
   font-size: 60px;
   font-family: monospace;
+}
+
+.displayResult:not(:empty) {
   margin-top: 50px;
+}
+
+.displayScore{
+  color: rgb(208, 208, 208);
+  font-size: 30px;
+  font-family: monospace;
+  margin-top: 50px;
+}
+
+.displayResetScore{
+  font-size: 20px;
+  font-family: monospace;
+  color: rgb(208, 208, 208);
+  padding: 15px 30px;
+  margin-top: 20px;
+  border: 2px solid gray;
+  border-radius: 15px;
+  background-color: rgb(27, 27, 27);
+  transition: 0.3s ease;
+}
+
+.displayResetScore:hover{
+  cursor: pointer;
+  background-color: rgb(76, 49, 49);
+  scale: 1.2;
 }

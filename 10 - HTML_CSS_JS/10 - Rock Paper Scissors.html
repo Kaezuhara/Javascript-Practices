@@ -7,27 +7,19 @@
   <link rel="stylesheet" href="10 - Rock Paper Scissors.css">
 </head>
 <body>
-  <script src="10 - Rock Paper Scissors.js"></script>
-
   <p class="title">Rock Paper Scissors</p>
 
   <div class="choicesRow">
     <!--Rock-->
-    <div class="rockCont" onclick="
-      play('rock');
-    ">
+    <div class="rockCont">
       <img class="choicesIcon" src="images/rock.png">
     </div>
     <!--Paper-->
-    <div class="paperCont" onclick="
-      play('paper');
-    ">
+    <div class="paperCont">
       <img class="choicesIcon" src="images/paper.png">
     </div>
     <!--Scissors-->
-    <div class="scissorsCont" onclick="
-      play('scissors');
-    ">
+    <div class="scissorsCont">
       <img class="choicesIcon" src="images/scissors.png">
     </div>
   </div>
@@ -36,5 +28,8 @@
   <p class="displayComputerChoice"></p>
   <p class="displayResult"></p>
   <p class="displayScore"></p>
+  <button class="displayResetScore">Reset</button>
+
+  <script src="10 - Rock Paper Scissors.js"></script>
 </body>
 </html>
