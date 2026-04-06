@@ -45,5 +45,37 @@ function toggleButton4(){
 }
 
 // Lower Buttons
+const lowerButtons = document.querySelector('.lowerButtons');
+
+const lowerButton1 = document.querySelector('.lowerButton1');
+document.querySelector('.lowerButton1').addEventListener('click', toggleLowerButton1);
+
+function toggleLowerButton1(){
+  if (lowerButton1.classList.contains('is-toggle')){
+    lowerButton1.classList.remove('is-toggle') ;
+  } else {
+    lowerButtons.classList.remove('is-toggle');
+    lowerButton1.classList.add('is-toggle');
+  }
+}
+
+const lowerButton2 = document.querySelector('.lowerButton2');
+document.querySelector('.lowerButton2').addEventListener('click', toggleLowerButton2);
+
+function toggleLowerButton2(){
+  if (lowerButton2.classList.contains('is-toggle')){
+    lowerButton2.classList.remove('is-toggle');
+  } else {
+    lowerButtons.classList.remove('is-toggle');
+    lowerButton2.classList.add('is-toggle');
+  }
+}
 
 // TO ADD
+
+// click button
+// add toggle to that button
+// click NEW button
+// check all buttons
+// remove toggle
+// add toggle to that button
