@@ -45,16 +45,16 @@ function toggleButton4(){
 }
 
 // Lower Buttons
-const lowerButtons = document.querySelector('.lowerButtons');
+const lowerButtons = document.querySelectorAll('.lowerButtons');
 
 const lowerButton1 = document.querySelector('.lowerButton1');
 document.querySelector('.lowerButton1').addEventListener('click', toggleLowerButton1);
 
 function toggleLowerButton1(){
   if (lowerButton1.classList.contains('is-toggle')){
-    lowerButton1.classList.remove('is-toggle') ;
+    lowerButtons.forEach(btn => btn.classList.remove('is-toggle'));
   } else {
-    lowerButtons.classList.remove('is-toggle');
+    lowerButtons.forEach(btn => btn.classList.remove('is-toggle'));
     lowerButton1.classList.add('is-toggle');
   }
 }
@@ -64,18 +64,33 @@ document.querySelector('.lowerButton2').addEventListener('click', toggleLowerBut
 
 function toggleLowerButton2(){
   if (lowerButton2.classList.contains('is-toggle')){
-    lowerButton2.classList.remove('is-toggle');
+    lowerButtons.forEach(btn => btn.classList.remove('is-toggle'));
   } else {
-    lowerButtons.classList.remove('is-toggle');
+    lowerButtons.forEach(btn => btn.classList.remove('is-toggle'));
     lowerButton2.classList.add('is-toggle');
   }
 }
 
-// TO ADD
+const lowerButton3 = document.querySelector('.lowerButton3');
+document.querySelector('.lowerButton3').addEventListener('click', toggleLowerButton3);
 
-// click button
-// add toggle to that button
-// click NEW button
-// check all buttons
-// remove toggle
-// add toggle to that button
+function toggleLowerButton3(){
+  if (lowerButton3.classList.contains('is-toggle')){
+    lowerButtons.forEach(btn => btn.classList.remove('is-toggle'));
+  } else {
+    lowerButtons.forEach(btn => btn.classList.remove('is-toggle'));
+    lowerButton3.classList.add('is-toggle');
+  }
+}
+
+const lowerButton4 = document.querySelector('.lowerButton4');
+document.querySelector('.lowerButton4').addEventListener('click', toggleLowerButton4);
+
+function toggleLowerButton4(){
+  if (lowerButton4.classList.contains('is-toggle')){
+    lowerButtons.forEach(btn => btn.classList.remove('is-toggle'));
+  } else {
+    lowerButtons.forEach(btn => btn.classList.remove('is-toggle'));
+    lowerButton4.classList.add('is-toggle');
+  }
+}
