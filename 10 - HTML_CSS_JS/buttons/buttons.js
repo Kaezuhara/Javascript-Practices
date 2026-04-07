@@ -47,50 +47,12 @@ function toggleButton4(){
 // Lower Buttons
 const lowerButtons = document.querySelectorAll('.lowerButtons');
 
-const lowerButton1 = document.querySelector('.lowerButton1');
-document.querySelector('.lowerButton1').addEventListener('click', toggleLowerButton1);
-
-function toggleLowerButton1(){
-  if (lowerButton1.classList.contains('is-toggle')){
-    lowerButtons.forEach(btn => btn.classList.remove('is-toggle'));
-  } else {
-    lowerButtons.forEach(btn => btn.classList.remove('is-toggle'));
-    lowerButton1.classList.add('is-toggle');
+// each button gets a click event listener. and when a button is clicked, the function runs on that button.
+lowerButtons.forEach(btn => btn.addEventListener('click', () => {     
+  if (btn.classList.contains('is-toggle')){                           // that click button is checked if it has 'is-toggle' class.
+    btn.classList.remove('is-toggle');                                // if it does, then it removes the 'is-toggle' class.
+  } else {                                                            // otherwise...
+    lowerButtons.forEach(btn => btn.classList.remove('is-toggle'));   // it loops to all buttons to remove 'is-toggle' class...
+    btn.classList.add('is-toggle');                                   // then adds 'is-toggle' to the current button which is clicked.
   }
-}
-
-const lowerButton2 = document.querySelector('.lowerButton2');
-document.querySelector('.lowerButton2').addEventListener('click', toggleLowerButton2);
-
-function toggleLowerButton2(){
-  if (lowerButton2.classList.contains('is-toggle')){
-    lowerButtons.forEach(btn => btn.classList.remove('is-toggle'));
-  } else {
-    lowerButtons.forEach(btn => btn.classList.remove('is-toggle'));
-    lowerButton2.classList.add('is-toggle');
-  }
-}
-
-const lowerButton3 = document.querySelector('.lowerButton3');
-document.querySelector('.lowerButton3').addEventListener('click', toggleLowerButton3);
-
-function toggleLowerButton3(){
-  if (lowerButton3.classList.contains('is-toggle')){
-    lowerButtons.forEach(btn => btn.classList.remove('is-toggle'));
-  } else {
-    lowerButtons.forEach(btn => btn.classList.remove('is-toggle'));
-    lowerButton3.classList.add('is-toggle');
-  }
-}
-
-const lowerButton4 = document.querySelector('.lowerButton4');
-document.querySelector('.lowerButton4').addEventListener('click', toggleLowerButton4);
-
-function toggleLowerButton4(){
-  if (lowerButton4.classList.contains('is-toggle')){
-    lowerButtons.forEach(btn => btn.classList.remove('is-toggle'));
-  } else {
-    lowerButtons.forEach(btn => btn.classList.remove('is-toggle'));
-    lowerButton4.classList.add('is-toggle');
-  }
-}
+}));
