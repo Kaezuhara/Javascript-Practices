@@ -50,10 +50,17 @@ p{
   font-size: 22px;
 }
 
+.tossCont{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+}
+
 .choicesCont{
   display: flex;
   align-items: center;
-  margin: 100px;
+  margin: 20px;
 }
 
 .choicesCol{
@@ -66,9 +73,15 @@ p{
 img{
   height: 200px;
   width: 200px;
+  transition: ease 0.3s;
 }
 
-.score{
-  display: flex;
-  gap: 100px;
+img:hover{
+  cursor: pointer;
+  scale: 1.1;
+}
+
+img:active{
+  scale: 0.8;
+  transition: none;
 }

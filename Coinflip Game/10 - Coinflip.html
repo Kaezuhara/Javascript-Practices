@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coinflip</title>
   <link rel="stylesheet" href="10 - Coinflip.css">
-  <link rel="stylesheet" href="10 - Coinflip.js">
 </head>
 <body>
   <div class="titleCont">
@@ -14,29 +13,36 @@
     <h1 class="flipTitle">FLIP</h1>
   </div>
 
+  <div class="tossCont">
+    <div class="imgCont" onclick="toss()">
+      <img src="images/Toss Coin.png">
+    </div>
+    <h3>Toss it!</h3>
+  </div>
+
+
+
   <div class="choicesCont">
     
     <div class="choicesCol">
-      <div class="imgCont">
-        <img src="images\Front Coin.png">
+      <div class="imgCont" onclick="guessHeads()">
+        <img src="images/Front Coin.png">
       </div>
       <h3>Heads</p>
     </div>
 
     <div class="choicesCol">
-      <div class="imgCont">
-        <img src="images\Back Coin.png">
+      <div class="imgCont" onclick="guessTails()">
+        <img src="images/Back Coin.png">
       </div>
       <h3>Tails</p>
     </div>
 
   </div>
 
-  <h2>You vs Computer</h2>
-  <div class="score">
-    <p class="win">Win: </p>
-    <p class="lose">Lose: </p>
-    <p class="tie">Tie: </p>
-  </div>
+  <h2>Guesses</h2>
+  <p class="scoreDisp">Win: Lose:</p>
+
+  <script src="10 - Coinflip.js"></script>
 </body>
 </html>
