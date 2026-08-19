@@ -7,45 +7,58 @@ const score = {
 };
 
 let coin = '';
+let hasFlipped = false;
 
 function toss(){
   const random = Math.random();
 
-  if (random < 0.5){
-    coin = 'heads';
+  if (hasFlipped){
+    status.innerHTML = 'Coin has been tossed already. Select your guess!'
   } else {
-    coin = 'tails';
+    if (random < 0.5){
+      coin = 'heads';
+    } else {
+      coin = 'tails';
+    }
+    hasFlipped = true;
+    status.innerHTML = 'Coin has been tossed. Select your guess!';
   }
-
-  status.innerHTML = 'Select your guess!';
 }
 
 function guessHeads(){
 
   let guess = 'heads';
-  
-  if (guess === coin){
-    status.innerHTML = 'You guessed heads. Correct!';
-    score.correct++;
+ 
+  if (!hasFlipped){
+    status.innerHTML = 'Please toss the coin first.';
   } else {
-    status.innerHTML = 'You guessed heads. Wrong!';
-    score.wrong++;
+    if (guess === coin){
+      status.innerHTML = 'You guessed heads. Correct!';
+      score.correct++;
+    } else {
+      status.innerHTML = 'You guessed heads. Wrong!';
+      score.wrong++;
+    }
+    hasFlipped = false;
+    scoreDisp.innerHTML = `Win: ${score.correct}     Lose: ${score.wrong}`;
   }
-
-  scoreDisp.innerHTML = `Win: ${score.correct}     Lose: ${score.wrong}`;
 };
 
 function guessTails(){
 
   let guess = 'tails';
   
-  if (guess === coin){
-    status.innerHTML = 'You guessed tails. Correct!';
-    score.correct++;
+  if (!hasFlipped){
+    status.innerHTML = 'Please toss the coin first.';
   } else {
-    status.innerHTML = 'You guessed tails. Wrong!';
-    score.wrong++;
+    if (guess === coin){
+      status.innerHTML = 'You guessed tails. Correct!';
+      score.correct++;
+    } else {
+      status.innerHTML = 'You guessed tails. Wrong!';
+      score.wrong++;
+    }
+    hasFlipped = false;
+    scoreDisp.innerHTML = `Win: ${score.correct}     Lose: ${score.wrong}`;
   }
-
-  scoreDisp.innerHTML = `Win: ${score.correct}     Lose: ${score.wrong}`;
 };
