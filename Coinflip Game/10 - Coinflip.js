@@ -1,4 +1,5 @@
 const scoreDisp = document.querySelector('.scoreDisp');
+const status = document.querySelector('.status');
 
 const score = {
   correct: 0,
@@ -15,6 +16,8 @@ function toss(){
   } else {
     coin = 'tails';
   }
+
+  status.innerHTML = 'Select your guess!';
 }
 
 function guessHeads(){
@@ -22,10 +25,10 @@ function guessHeads(){
   let guess = 'heads';
   
   if (guess === coin){
-    console.log("You guessed it right!");
+    status.innerHTML = 'You guessed heads. Correct!';
     score.correct++;
   } else {
-    console.log("You guessed it wrong!");
+    status.innerHTML = 'You guessed heads. Wrong!';
     score.wrong++;
   }
 
@@ -37,10 +40,10 @@ function guessTails(){
   let guess = 'tails';
   
   if (guess === coin){
-    console.log("You guessed it right!");
+    status.innerHTML = 'You guessed tails. Correct!';
     score.correct++;
   } else {
-    console.log("You guessed it wrong!");
+    status.innerHTML = 'You guessed tails. Wrong!';
     score.wrong++;
   }
 
