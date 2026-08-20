@@ -7,12 +7,14 @@
   <link rel="stylesheet" href="10 - Coinflip.css">
 </head>
 <body>
+  <!--Coin/Flip Title-->
   <div class="titleCont">
     <h1 class="coinTitle">COIN</h1>
     <h1 class="slashTitle">/</h1>
     <h1 class="flipTitle">FLIP</h1>
   </div>
 
+  <!--Toss Button-->
   <div class="tossCont">
     <div class="imgCont" onclick="toss()">
       <img src="images/Toss Coin.png">
@@ -21,9 +23,10 @@
   </div>
 
 
-
+  <!--Heads & Tails Buttons Row-->
   <div class="choicesCont">
-    
+
+    <!--Heads Button Column-->
     <div class="choicesCol">
       <div class="imgCont" onclick="guessHeads()">
         <img src="images/Front Coin.png">
@@ -31,6 +34,7 @@
       <h3>Heads</p>
     </div>
 
+    <!--Tails Button Column-->
     <div class="choicesCol">
       <div class="imgCont" onclick="guessTails()">
         <img src="images/Back Coin.png">
@@ -40,11 +44,14 @@
 
   </div>
 
+  <!--Score Section & Reset Button-->
   <div class="scoreCont">
     <h2>Guesses</h2>
-    <p class="scoreDisp">Win: Lose:</p>
+    <p class="scoreDisp"></p>
+    <button class="reset" onclick="resetScore()">Reset</button>
   </div>
 
+  <!--Status Row-->
   <div class="statusCont">
     <p class="status">Toss the coin to start.</p>
   </div>
