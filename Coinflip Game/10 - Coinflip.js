@@ -34,38 +34,16 @@ function toss(){
   }
 }
 
-function guessHeads(){
-
-  let guess = 'heads';
- 
-  if (!hasFlipped){
-    statusFeedback.innerHTML = 'Please toss the coin first.';
-  } else {
-    if (guess === coin){
-      statusFeedback.innerHTML = 'You guessed heads. Correct!';
-      score.correct++;
-    } else {
-      statusFeedback.innerHTML = 'You guessed heads. Wrong!';
-      score.wrong++;
-    }
-    hasFlipped = false;
-    scoreDisp.innerHTML = `Win: ${score.correct} | Lose: ${score.wrong}`;
-    localStorage.setItem('score', JSON.stringify(score));
-  }
-};
-
-function guessTails(){
-
-  let guess = 'tails';
+function playGame(guess){
   
   if (!hasFlipped){
     statusFeedback.innerHTML = 'Please toss the coin first.';
   } else {
     if (guess === coin){
-      statusFeedback.innerHTML = 'You guessed tails. Correct!';
+      statusFeedback.innerHTML = `You guessed ${guess}. Correct!`;
       score.correct++;
     } else {
-      statusFeedback.innerHTML = 'You guessed tails. Wrong!';
+      statusFeedback.innerHTML = `You guessed ${guess}. Wrong!`;
       score.wrong++;
     }
     hasFlipped = false;
