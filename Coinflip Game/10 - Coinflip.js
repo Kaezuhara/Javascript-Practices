@@ -34,6 +34,7 @@ function toss(){
   }
 }
 
+// Play function when guessing the answer
 function playGame(guess){
   
   if (!hasFlipped){
@@ -52,6 +53,7 @@ function playGame(guess){
   }
 };
 
+// Reset function for resetting the score.
 function resetScore(){
   score.correct = 0;
   score.wrong = 0;

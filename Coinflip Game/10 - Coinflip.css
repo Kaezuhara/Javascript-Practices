@@ -4,9 +4,10 @@ COLORS
 Primary (Background): #EEE0CB
 Secondary (Buttons): #BAA898
 
-Light Beige: EEE0CB
-Darker Beige: BAA898
-Teal: 839788
+Title
+"Coin": rgb(179, 156, 31)
+"Flip" rgb(49, 38, 110)
+
 */
 
 * {
