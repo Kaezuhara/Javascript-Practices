@@ -4,10 +4,13 @@ let arrayList = [];
 
 // Renders the array to the HTML (webpage)
 function renderArray(){
-  let todoDisplay = '';     // accumulator
+  let todoDisplay = '';     // initializes accumulator
+
   for (let i = 0; i < arrayList.length; i++){
-    let todoObj = arrayList[i];           // each element or object is saved
-    let { name, date } = todoObj;         // object destructuring
+    todoObj = arrayList[i];           // each element or object is saved
+    let { name, date } = todoObj;     // object destructuring
+
+    // creates HTML elements
     let todoHTML = `
       <p>
         ${name} ${date}
@@ -17,17 +20,23 @@ function renderArray(){
         ">Delete</button>
       </p>
     `;
+
     todoDisplay += todoHTML;              // HTML lines are accumulated to a variable
   }
   document.querySelector('.todoContainer').innerHTML = todoDisplay; // after all array object has been saved, it is rendered to the webpage
 }
 
+// Input function
 function addToArray(){
-  arrayList.push({            // input goes to the array
-    name: inputBox.value,     // with object structure
+  const todoObj = {           // initializes object property
+    name: inputBox.value,
     date: datePicker.value
-  });
-  inputBox.value = '';    // clears the input box
+  };
+
+  arrayList.push(todoObj);    // todoObj input is pushed to the arrayList
+
+  inputBox.value = '';        // clears input
   datePicker.value = '';
-  renderArray();          // new array (list) is loaded to the webpage
+
+  renderArray();              // input is loaded to the webpage
 }
