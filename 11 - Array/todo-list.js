@@ -1,23 +1,33 @@
 const inputBox = document.querySelector('.inputBox');
+const datePicker = document.querySelector('.datePicker');
 let arrayList = [];
 
 // Renders the array to the HTML (webpage)
 function renderArray(){
   let todoDisplay = '';     // accumulator
   for (let i = 0; i < arrayList.length; i++){
-    let todoVar = arrayList[i];           // each element is saved
-    let todoHTML = `<p>${todoVar}</p>`;   // and makes its own HTML line
-    todoDisplay += todoHTML;              // and HTML lines are accumulated
+    let todoObj = arrayList[i];           // each element or object is saved
+    let { name, date } = todoObj;         // object destructuring
+    let todoHTML = `
+      <p>
+        ${name} ${date}
+        <button onclick="
+          arrayList.splice(${i}, 1);
+          renderArray();
+        ">Delete</button>
+      </p>
+    `;
+    todoDisplay += todoHTML;              // HTML lines are accumulated to a variable
   }
-  document.querySelector('.todoContainer').innerHTML = todoDisplay; // after accumulation, it is rendered to the webpage
+  document.querySelector('.todoContainer').innerHTML = todoDisplay; // after all array object has been saved, it is rendered to the webpage
 }
 
 function addToArray(){
-  arrayList.push(inputBox.value);   // input goes to the array
-  // for loop for verification
-  for (let i = 0; i < arrayList.length; i++){
-    console.log(arrayList[i]);
-  }
+  arrayList.push({            // input goes to the array
+    name: inputBox.value,     // with object structure
+    date: datePicker.value
+  });
   inputBox.value = '';    // clears the input box
-  renderArray();    // new array (list) is loaded to the webpage
+  datePicker.value = '';
+  renderArray();          // new array (list) is loaded to the webpage
 }
