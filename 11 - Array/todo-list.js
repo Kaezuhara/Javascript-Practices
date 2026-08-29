@@ -1,6 +1,20 @@
 const inputBox = document.querySelector('.inputBox');
 const datePicker = document.querySelector('.datePicker');
-let arrayList = [];
+let arrayList = [
+  // SAMPLE TO-DO
+  {
+    name: "Graduate",
+    date: "2028-9-23"
+  }, {
+    name: "Buy my own PC",
+    date: "2029-5-15"
+  }, {
+    name: "Get married with my current girlfriend",
+    date: "2034-12-11"
+  }
+];
+
+renderArray();    // Renders the sample array
 
 // Renders the array to the HTML (webpage)
 function renderArray(){
@@ -12,13 +26,12 @@ function renderArray(){
 
     // creates HTML elements
     let todoHTML = `
-      <p>
-        ${name} ${date}
-        <button onclick="
-          arrayList.splice(${i}, 1);
-          renderArray();
-        ">Delete</button>
-      </p>
+      <div>${name}</div>
+      <div>${date}</div>
+      <button class="deleteButton" onclick="
+        arrayList.splice(${i}, 1);
+        renderArray();
+      ">Delete</button>
     `;
 
     todoDisplay += todoHTML;              // HTML lines are accumulated to a variable

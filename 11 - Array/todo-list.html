@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Array</title>
+  <link rel="stylesheet" href="todo-list.css">
 </head>
 <body>
-  <p>To-do List</p>
-  <input class="inputBox" placeholder="What do you want to do?">
-  <input type="date" class="datePicker">
-  <button class="addButton" onclick="addToArray()">Add</button>
+  <p class="title">TO-DO LIST</p>
+  <div class="inputContainer">
+    <input class="inputBox" placeholder="What do you want to do?">
+    <input type="date" class="datePicker">
+    <button class="addButton" onclick="addToArray()">Add</button>
+  </div>
   <div class="todoContainer"></div>
 
   <script src="todo-list.js"></script>

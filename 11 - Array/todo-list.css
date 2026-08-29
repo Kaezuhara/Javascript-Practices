@@ -1,0 +1,61 @@
+/*
+  Primary Color: #dee2ff
+*/
+
+*{
+  font-family: arial;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #dee2ff;
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  margin: 100px 0px 50px 0px;
+}
+
+.todoContainer, .inputContainer{
+  display: grid;
+  grid-template-columns: 300px 170px 100px;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.inputContainer{
+  margin-bottom: 20px;
+}
+
+.inputBox, .datePicker{
+  height: 40px;
+  padding: 10px;
+  border: none;
+  background-color: #b7bbdd;
+}
+
+.addButton{
+  height: 40px;
+  padding: 10px;
+  border: none;
+  background-color: rgb(139, 209, 139);
+}
+
+.deleteButton{
+  height: 40px;
+  padding: 10px;
+  border: none;
+  background-color: rgb(235, 162, 162);
+}
+
+.addButton, .deleteButton{
+  cursor: pointer;
+}
