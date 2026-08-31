@@ -129,7 +129,7 @@ function removeFirstTwo(arr){
 
 // Example #9: Reverse the last 2 'eggs'
 function removeLastTwo(arr){
-  console.log("Exercise #8: Reverse the last 2 'eggs'");
+  console.log("Exercise #9: Reverse the last 2 'eggs'");
   console.log(`Array contains: ${arr}`);
 
   let eggsRemoved = 0;
