@@ -1,6 +1,6 @@
 const inputBox = document.querySelector('.inputBox');
 const datePicker = document.querySelector('.datePicker');
-let arrayList = [
+let arrayList = JSON.parse(localStorage.getItem('arrayList')) || [
   // SAMPLE TO-DO
   {
     name: "Graduate",
@@ -37,6 +37,7 @@ function renderArray(){
     todoDisplay += todoHTML;              // HTML lines are accumulated to a variable
   }
   document.querySelector('.todoContainer').innerHTML = todoDisplay; // after all array object has been saved, it is rendered to the webpage
+  localStorage.setItem('arrayList', JSON.stringify(arrayList)); // saved to local storage
 }
 
 // Input function
