@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Each</title>
+</head>
+<body>
+  <style>
+    div{
+      margin-bottom: 50px;
+    }
+  </style>
+  
+  <div>
+    <p>Make the button load when clicking and display "Finished" after a delay.</p>
+    <button class="delayedButton" onclick="delayedDisp()">Button</button>
+  </div>
+
+  <div>
+    <p>Click a button that displays a message below and be removed after a delay.</p>
+    <button class="cartButton" onclick="addToCart()">Add to cart</button>
+    <p class="addedToCart"></p>
+  </div>
+
+  <div>
+    <p>Click a button to order, then displayes "Success" below after a short delay, which can be cancelled by clicking it again.</p>
+    <button class="orderButton" onclick="order()">Order</button>
+    <p class="successDisp"></p>
+  </div>
+
+  <script src="adv-functions-exercises.js"></script>
+</body>
+</html>
