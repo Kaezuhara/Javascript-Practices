@@ -15,7 +15,7 @@ const addedToCart = document.querySelector('.addedToCart');
 const cartButton = document.querySelector('.cartButton');
 
 function addToCart(){
-  cartButton.innerHTML = 'adding...';
+  cartButton.innerHTML = 'Adding...';
 
   setTimeout(() => {                      // this runs first after 3s
     addedToCart.innerHTML = 'Added!';
@@ -39,11 +39,11 @@ let orderID = '';
 function order(){
   if (pressed === false){
     pressed = true;
-    orderButton.innerHTML = 'ordering...';
+    orderButton.innerHTML = 'Ordering...';
 
     orderID = setTimeout(() => {
       successDisp.innerHTML = 'Success!';
-      orderButton.innerHTML = 'order';
+      orderButton.innerHTML = 'Order';
 
       pressed = false;
     }, 3000);
@@ -52,7 +52,66 @@ function order(){
     pressed = false;
     clearTimeout(orderID);
 
-    orderButton.innerHTML = 'order';
+    orderButton.innerHTML = 'Order';
     successDisp.innerHTML = 'Order cancelled.';
   }
+}
+
+
+
+// Prompt a notification 3 times only on the title page
+function notify(){
+  let count = 0;
+  let isShowNotif = 'false';
+
+  const setIntID = setInterval(() => {
+    if (isShowNotif){
+      document.title = '(2) Notifications';
+    } else {
+      document.title = 'Advanced Functions';
+    }
+    
+    isShowNotif = !isShowNotif;
+    count++;
+    
+    if (count >= 6){
+      clearInterval(setIntID);
+      document.title = 'Advanced Functions';
+    }
+  }, 1000);
+}
+
+
+
+// Add or remove a message count by 1 and prompt it twice in the notification.
+let messageCount = 0;   // outside the function so message count is saved
+
+function message(isAdd){
+  let promptCount = 0;
+  let isShowMessage = false;
+
+  if (isAdd){
+    messageCount++;
+  } else if (!isAdd && messageCount > 0){   // cant subtract if message = 0
+    messageCount--;
+  }
+
+  const intMessageID = setInterval(() => {
+
+    if (isShowMessage){
+      document.title = `(${messageCount}) Messages`;
+    } else {
+      document.title = 'Advanced Functions';
+    }
+
+    isShowMessage = !isShowMessage;
+    promptCount++;
+
+    if (promptCount > 4){
+      clearInterval(intMessageID);
+      document.title = 'Advanced Functions';
+    }
+  }, 1000);
+
+  return messageCount; // saves message count
 }

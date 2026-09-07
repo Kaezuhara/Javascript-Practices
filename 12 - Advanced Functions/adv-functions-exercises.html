@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For Each</title>
+  <title>Advanced Functions</title>
 </head>
 <body>
   <style>
@@ -27,6 +27,17 @@
     <p>Click a button to order, then displayes "Success" below after a short delay, which can be cancelled by clicking it again.</p>
     <button class="orderButton" onclick="order()">Order</button>
     <p class="successDisp"></p>
+  </div>
+
+  <div>
+    <p>Prompt a notification 3 times only on the title page.</p>
+    <button onclick="notify()">Prompt</button>
+  </div>
+
+  <div>
+    <p>Add or remove a message count by 1 and prompt it twice in the notification.</p>
+    <button onclick="message(true)">Add</button>
+    <button onclick="message(false)">Remove</button>
   </div>
 
   <script src="adv-functions-exercises.js"></script>
