@@ -3,6 +3,12 @@ const scoreDisp = document.querySelector('.scoreDisp');
 const statusFeedback = document.querySelector('.statusFeedback');
 const reset = document.querySelector('.reset');
 
+// Event Listeners
+document.querySelector('.heads').addEventListener('click', () => {playGame('heads')});
+document.querySelector('.tails').addEventListener('click', () => {playGame('tails')});
+document.querySelector('.toss').addEventListener('click', toss);
+reset.addEventListener('click', resetScore);
+
 // Global variable initialization
 let coin = '';
 let hasFlipped = false;

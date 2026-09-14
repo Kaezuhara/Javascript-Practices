@@ -1,5 +1,6 @@
 const inputBox = document.querySelector('.inputBox');
 const datePicker = document.querySelector('.datePicker');
+document.querySelector('.addButton').addEventListener('click', addToArray);
 let arrayList = JSON.parse(localStorage.getItem('arrayList')) || [
   // SAMPLE TO-DO
   {
