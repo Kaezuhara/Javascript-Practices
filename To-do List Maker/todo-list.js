@@ -29,15 +29,23 @@ function renderArray(){
     let todoHTML = `
       <div>${name}</div>
       <div>${date}</div>
-      <button class="deleteButton" onclick="
-        arrayList.splice(${i}, 1);
-        renderArray();
+      <button class="deleteButton"
       ">Delete</button>
     `;
 
     todoDisplay += todoHTML;              // HTML lines are accumulated to a variable
   }
   document.querySelector('.todoContainer').innerHTML = todoDisplay; // after all array object has been saved, it is rendered to the webpage
+
+  // On click event listener for Delete Buttons
+  document.querySelectorAll('.deleteButton')            // select every element with deleteButton class
+    .forEach((deleteButton, index) => {                 // each deleteButton element has its own index...
+      deleteButton.addEventListener('click', () => {    // and runs a function when clicked.
+        arrayList.splice(index, 1);                     // removes the element with that index
+        renderArray();                                  // renders the updated array
+      })
+    })
+
   localStorage.setItem('arrayList', JSON.stringify(arrayList)); // saved to local storage
 }
 
