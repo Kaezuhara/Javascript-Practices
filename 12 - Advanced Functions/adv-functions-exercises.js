@@ -131,3 +131,26 @@ function message(isAdd){
 
   return messageCount; // saves message count
 }
+
+
+
+// Create an arrow function and multiply 2 numbers together.
+const arrowMultiply = (a, b) => a * b;
+document.querySelector('.arrowMultiply').addEventListener('click', () => console.log(arrowMultiply(5,4)));
+
+
+
+// Return how many numbers in the array are positive using .forEach
+document.querySelector('.countPositive').addEventListener('click', () => {
+  let count = 0;
+  let array = [3, -5, 7, -2, 9];
+
+  array.forEach((value) => {
+    if (value > 0){
+      count++;
+    }
+  });
+    
+  console.log(array);
+  console.log(`${count} numbers are positive.`);
+});
