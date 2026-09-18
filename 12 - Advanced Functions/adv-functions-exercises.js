@@ -136,11 +136,11 @@ function message(isAdd){
 
 // Create an arrow function and multiply 2 numbers together.
 const arrowMultiply = (a, b) => a * b;
-document.querySelector('.arrowMultiply').addEventListener('click', () => console.log(arrowMultiply(5,4)));
+document.querySelector('.arrowMultiply').addEventListener('click', () => console.log(`Given numbers: 5 and 4. | Product: ${arrowMultiply(5,4)}`));
 
 
 
-// Return how many numbers in the array are positive using .forEach
+// Return how many numbers in the array are positive using .forEach()
 document.querySelector('.countPositive').addEventListener('click', () => {
   let count = 0;
   let array = [3, -5, 7, -2, 9];
@@ -151,6 +151,34 @@ document.querySelector('.countPositive').addEventListener('click', () => {
     }
   });
     
-  console.log(array);
+  console.log(`Given array: ${array}`);
   console.log(`${count} numbers are positive.`);
 });
+
+
+
+// Takes and returns an array where each number is increased by 3 using .map()
+document.querySelector('.increase').addEventListener('click', () => {
+  const arr = [1, 2, 3];
+
+  result = arr.map((value) => {
+    return value + 3;
+  })
+
+  console.log(`Given array: ${arr}`);
+  console.log(`Final array: ${result}`);
+})
+
+
+
+// Takes an array of colors and returns an array where 'red' is removed using .filter()
+document.querySelector('.removeRed').addEventListener('click', () => {
+  const arr = ['red', 'blue', 'red', 'green', 'yellow', 'red'];
+
+  result = arr.filter((value) => {
+    return value !== 'red';
+  })
+
+  console.log(`Given array: ${arr}`);
+  console.log(`Final array: ${result}`);
+})
