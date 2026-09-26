@@ -656,5 +656,34 @@ const products = [
       "apparel",
       "mens"
     ]
+  },
+  {
+    id: "b7f2c8a1-91d4-4c3e-9f21-123456789abc",
+    image: "images/products/backpack.jpg",
+    name: "All-Around Waterproof Backpack",
+    rating: {
+      stars: 4.5,
+      count: 258
+    },
+    priceCents: 5849,
+    keywords: [
+      "backpack",
+      "bag",
+      "accessory"
+    ]
+  },
+  {
+    id: "dffcfa68-d96f-4724-b254-58aa7fb3a123",
+    image: "images/products/umbrella.jpg",
+    name: "Automatic Umbrella 24-Ribs Anti-UV",
+    rating: {
+      stars: 4.5,
+      count: 416
+    },
+    priceCents: 1699,
+    keywords: [
+      "umbrella",
+      "automatic"
+    ]
   }
 ];

@@ -90,6 +90,5 @@ document.querySelectorAll('.add-to-cart-button').forEach((button) => {
     })
 
     document.querySelector('.cart-quantity').innerHTML = cartQty;
-    console.log(cart);
   });
 });
