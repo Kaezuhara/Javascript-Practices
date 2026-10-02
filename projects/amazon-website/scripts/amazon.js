@@ -1,6 +1,7 @@
 // Display HTML
 
 let productsHTML = '';
+let addedMsgTimeouts = {};
 
 products.forEach((product) => {
   productsHTML += `
@@ -95,7 +96,9 @@ document.querySelectorAll('.add-to-cart-button').forEach((button) => {
     const added = document.querySelector(`.added-to-cart-${productId}`);
     added.classList.add('added-to-cart-visible');
 
-    setTimeout(() => {
+    clearTimeout(addedMsgTimeouts[productId]);
+
+    addedMsgTimeouts[productId] = setTimeout(() => {
       added.classList.remove('added-to-cart-visible');
     }, 2000);
   });
