@@ -1,9 +1,10 @@
 // Display HTML
 
-let productsHTML = '';
-let addedMsgTimeouts = {};
+let productsHTML = '';        // contain the visible HTML structure for every product
+let addedMsgTimeouts = {};    // contains active timer for each products, for notif display when adding to cart
 
-products.forEach((product) => {
+// generate each product's HTML and save it to productsHTML
+products.forEach((product) => {               // 'products' is located in the data folder.
   productsHTML += `
     <div class="product-container">
       <div class="product-image-container">
@@ -55,51 +56,59 @@ products.forEach((product) => {
       </button>
     </div>    
   `;
-})
+});
 
-document.querySelector('.products-grid').innerHTML = productsHTML;
+document.querySelector('.products-grid').innerHTML = productsHTML;    // load the products to the webpage
 
 
 
-// Interaction
 
-document.querySelectorAll('.add-to-cart-button').forEach((button) => {
+
+// Add to cart interaction
+
+document.querySelectorAll('.add-to-cart-button').forEach((button) => {    // make every products have its own button
   button.addEventListener('click', () => {
-    const { productId } = button.dataset;   // destructure
-    const productQty = Number(document.querySelector(`.product-qty-${productId}`).value);
+    const { productId } = button.dataset;   // destructure --- unique identifier for each products using 'data' attribute
+    const productQty = Number(document.querySelector(`.product-qty-${productId}`).value);   // convert the selector value to a number
     let matchingItem;
 
+    // check if the product is already in the cart
     cart.forEach((item) => {
-
       if (productId === item.productId){
         matchingItem = item;
       }
     });
 
-    if (matchingItem){
+    if (matchingItem){    // if the product is in the cart already, then just add the quantity
       matchingItem.productQty += productQty;
-    } else {
+    } else {              // if not yet, add the product to the cart
       cart.push({
-        productId,    // destructure
-        productQty    // destructure
+        productId,    // shorthand property
+        productQty    // shorthand property
       });
     }
     
+    // count and save all the quantity of each product inside the cart
     let cartQty = 0;
     cart.forEach((item) => {
       cartQty += item.productQty;
-    })
+    });
 
-    document.querySelector('.cart-quantity').innerHTML = cartQty;
+    document.querySelector('.cart-quantity').innerHTML = cartQty;   // load the cart quantity to the webpage
+
+
+
+
 
     // Add to Cart Notification
     const added = document.querySelector(`.added-to-cart-${productId}`);
-    added.classList.add('added-to-cart-visible');
+    added.classList.add('added-to-cart-visible');   // add the css visible classlist
 
-    clearTimeout(addedMsgTimeouts[productId]);
+    clearTimeout(addedMsgTimeouts[productId]);    // cancel the timer for the product's notif if it is active; for multiple clicks bug
 
-    addedMsgTimeouts[productId] = setTimeout(() => {
-      added.classList.remove('added-to-cart-visible');
+    // remove the notif after 2 seconds
+    addedMsgTimeouts[productId] = setTimeout(() => {    // ex. addedMsgTimeouts[productId-123]: # (new int)
+      added.classList.remove('added-to-cart-visible');  // ^ bracket notation is used for dynamic variable
     }, 2000);
   });
-});          
+});

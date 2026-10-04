@@ -1,1 +1,1 @@
-const cart = [];
+const cart = [];    // push, pop, modify still works with const
