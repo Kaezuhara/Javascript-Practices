@@ -1,3 +1,5 @@
+// Products data
+
 const products = [
   {
     id: 1,
@@ -16,6 +18,10 @@ const products = [
   }
 ];
 
+
+
+// Load products to HTML
+
 let productsHTML = '';
 
 products.forEach((product) => {
@@ -25,10 +31,31 @@ products.forEach((product) => {
       <div class="lowerCont">
         <p class="productName">${product.title}</p>
         <p class="added added-${product.id}">Added!</p>
-        <button class="${product.id}" data-product-id-"${product.id}">Add to Cart</button>
+        <button class="${product.id}" data-product-id="${product.id}">Add to Cart</button>
       </div>
     </div>
   `;
 });
 
 document.querySelector('.content').innerHTML = productsHTML;
+
+
+
+// 'Added' notification
+
+const addedVisibleTimers = {};
+
+document.querySelectorAll('button').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const { productId } = btn.dataset;
+    const addBtn = document.querySelector(`.added-${productId}`);
+
+    addBtn.classList.add('added-visible');
+
+    clearTimeout(addedVisibleTimers[productId]);
+
+    addedVisibleTimers[productId] = setTimeout(() => {
+      addBtn.classList.remove('added-visible');
+    }, 3000);
+  });
+});
