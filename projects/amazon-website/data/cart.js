@@ -1,1 +1,1 @@
-const cart = [];    // push, pop, modify still works with const
+export const cart = [];    // push, pop, modify still works with const

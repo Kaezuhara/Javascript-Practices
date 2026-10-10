@@ -1,4 +1,5 @@
 // Display HTML
+import {cart} from '../data/cart.js';
 
 let productsHTML = '';        // contain the visible HTML structure for every product
 let addedMsgTimeouts = {};    // contains active timer for each products, for notif display when adding to cart
