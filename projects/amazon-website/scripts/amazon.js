@@ -1,5 +1,5 @@
 // Display HTML
-import { cart } from '../data/cart.js';
+import { cart, addToCart } from '../data/cart.js';
 import { products } from '../data/products.js';
 
 let productsHTML = '';        // contain the visible HTML structure for every product
@@ -64,53 +64,42 @@ document.querySelector('.products-grid').innerHTML = productsHTML;    // load th
 
 
 
+// count and save all the quantity of each product inside the cart
+function updateCartQty(){
+  let cartQty = 0;
+  cart.forEach((cartItem) => {
+    cartQty += cartItem.productQty;
+  });
+
+  document.querySelector('.cart-quantity').innerHTML = cartQty;   // load the cart quantity to the webpage
+}
+
+
+
+// display confirmation when adding a product to cart is successful
+function addedToCartNotif(productId){
+  // Add to Cart Notification
+  const added = document.querySelector(`.added-to-cart-${productId}`);
+  added.classList.add('added-to-cart-visible');   // add the css visible classlist
+
+  clearTimeout(addedMsgTimeouts[productId]);    // cancel the timer for the product's notif if it is active; for multiple clicks bug
+
+  // remove the notif after 2 seconds
+  addedMsgTimeouts[productId] = setTimeout(() => {    // ex. addedMsgTimeouts[productId-123]: # (new int)
+    added.classList.remove('added-to-cart-visible');  // ^ bracket notation is used for dynamic variable
+  }, 2000);
+}
+
 
 
 // Add to cart interaction
-
 document.querySelectorAll('.add-to-cart-button').forEach((button) => {    // make every products have its own button
   button.addEventListener('click', () => {
     const { productId } = button.dataset;   // destructure --- unique identifier for each products using 'data' attribute
     const productQty = Number(document.querySelector(`.product-qty-${productId}`).value);   // convert the selector value to a number
-    let matchingItem;
-
-    // check if the product is already in the cart
-    cart.forEach((item) => {
-      if (productId === item.productId){
-        matchingItem = item;
-      }
-    });
-
-    if (matchingItem){    // if the product is in the cart already, then just add the quantity
-      matchingItem.productQty += productQty;
-    } else {              // if not yet, add the product to the cart
-      cart.push({
-        productId,    // shorthand property
-        productQty    // shorthand property
-      });
-    }
     
-    // count and save all the quantity of each product inside the cart
-    let cartQty = 0;
-    cart.forEach((item) => {
-      cartQty += item.productQty;
-    });
-
-    document.querySelector('.cart-quantity').innerHTML = cartQty;   // load the cart quantity to the webpage
-
-
-
-
-
-    // Add to Cart Notification
-    const added = document.querySelector(`.added-to-cart-${productId}`);
-    added.classList.add('added-to-cart-visible');   // add the css visible classlist
-
-    clearTimeout(addedMsgTimeouts[productId]);    // cancel the timer for the product's notif if it is active; for multiple clicks bug
-
-    // remove the notif after 2 seconds
-    addedMsgTimeouts[productId] = setTimeout(() => {    // ex. addedMsgTimeouts[productId-123]: # (new int)
-      added.classList.remove('added-to-cart-visible');  // ^ bracket notation is used for dynamic variable
-    }, 2000);
+    addToCart(productId, productQty);
+    updateCartQty();
+    addedToCartNotif(productId);
   });
 });
