@@ -22,15 +22,14 @@ function renderArray(){
   let todoDisplay = '';     // initializes accumulator
 
   for (let i = 0; i < arrayList.length; i++){
-    todoObj = arrayList[i];           // each element or object is saved
+    const todoObj = arrayList[i];           // each element or object is saved
     let { name, date } = todoObj;     // object destructuring
 
     // creates HTML elements
     let todoHTML = `
       <div>${name}</div>
       <div>${date}</div>
-      <button class="deleteButton"
-      ">Delete</button>
+      <button class="deleteButton">Delete</button>
     `;
 
     todoDisplay += todoHTML;              // HTML lines are accumulated to a variable
@@ -49,8 +48,36 @@ function renderArray(){
   localStorage.setItem('arrayList', JSON.stringify(arrayList)); // saved to local storage
 }
 
-// Input function
+// Input Function
 function addToArray(){
+  // Validation Guard Clauses
+  if (inputBox.value === "" && datePicker.value === ""){
+    alert('Your task and date is empty.');
+    return;
+  }
+  
+  if (inputBox.value === ""){
+    alert('Your task is empty.');
+    return;
+  }
+  
+  if (datePicker.value === ""){
+    alert('Your date is empty.')
+    return;
+  }
+
+  // Read the Date
+  const chosenDate = new Date(datePicker.value);
+  const chosenYear = chosenDate.getFullYear();
+  const currentYear = new Date().getFullYear();
+
+  // Check for illogical year
+  if (chosenYear < currentYear || chosenYear > currentYear + 80){
+    alert('Your date is invalid.');
+    return;
+  };
+  
+  // Success Logic
   const todoObj = {           // initializes object property
     name: inputBox.value,
     date: datePicker.value
@@ -58,6 +85,7 @@ function addToArray(){
 
   arrayList.push(todoObj);    // todoObj input is pushed to the arrayList
 
+  // Cleanup and Update
   inputBox.value = '';        // clears input
   datePicker.value = '';
 
