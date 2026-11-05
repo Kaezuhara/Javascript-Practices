@@ -1,6 +1,7 @@
 // Display HTML
 import { cart, addToCart } from '../data/cart.js';
 import { products } from '../data/products.js';
+import { formatCurrency } from './utils/money.js';
 
 let productsHTML = '';        // contain the visible HTML structure for every product
 let addedMsgTimeouts = {};    // contains active timer for each products, for notif display when adding to cart
@@ -27,7 +28,7 @@ products.forEach((product) => {               // 'products' is located in the da
       </div>
 
       <div class="product-price">
-        $${product.priceCents / 100}
+        $${formatCurrency(product.priceCents)}
       </div>
 
       <div class="product-quantity-container">
